@@ -37,7 +37,16 @@ void User::removeBorrowedItem(int num) {
 
 
 void User::displayBorrowedItems(User user) const {
-    cout << user.getName() << "'s borrowed items: " << endl;
+    string name = user.getName();
+    int lastLetter = name.size() - 1;
+
+    if (name.at(lastLetter) == 's') {
+        cout << user.getName() << "' Borrowed Items: " << endl;
+    }
+    else {
+        cout << user.getName() << "'s borrowed items: " << endl;
+    }
+
 
     if (borrowedItems.empty()) {
         return;
@@ -56,4 +65,3 @@ void User::displayBorrowedItems(User user) const {
 bool User::hasBorrowedItems() const {
     return !borrowedItems.empty();
 }
-
